@@ -343,6 +343,14 @@ public class BonkNode : Node {
         return Exit;
     }
 
+    [FlowInput]
+    public Continuation Reset() {
+        Animator animator = toBonk.Animator;
+        var boneToBeBonked = animator.GetBoneTransform(boneToBonk);
+        boneToBeBonked.localScale = Vector3.one;
+        return null;
+    }
+
     [FlowOutput]
     public Continuation Exit;
 
